@@ -79,20 +79,6 @@ function selectOption(selectedIndex) {
     handleAnswerSelection(selectedIndex);
 }
 
-
-//function selectOption(selectedIndex) {
-//    const currentQuestion = quizData[currentQuestionIndex];
-//    if (selectedIndex === currentQuestion.answer) {
-//        score++;
- //   }
-//    currentQuestionIndex++;
-//    if (currentQuestionIndex < quizData.length) {
-//        loadQuestion();
- //   } else {
-//        showScore();
-//    }       
-//}
-
 function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < quizData.length) {
