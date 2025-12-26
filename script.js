@@ -1,31 +1,31 @@
 const quizData = [ {
-    question: "Random question 1?",
+    question: "What was the name of Walt Disney's first animated short?",
 
-    options: ["Option A", "Option B", "Option C", "Option D"],
-
-    answer: 2},
-
-    {question: "Random question 2?",
-
-    options: ["Option A", "Option B", "Option C", "Option D"],
+    options: ["Steamboat Willie", "The Barnyard Battle", "The Sorcerer's Apprentice", "The Three Little Pigs"],
 
     answer: 0},
 
-    {question: "Random question 3?",
+    {question: "What was the name of the Walt Disney's character before Mickey Mouse?",
+
+    options: ["Mortimer Mouse", "Mickey Mouse", "Donald Duck", "Goofy"],
+
+    answer: 0},
+
+    {question: "What was the name of the rabbit Walt Disney created before Mickey Mouse?",
     
-    options: ["Option A", "Option B", "Option C", "Option D"],
+    options: ["Bugs Bunny", "Roger Rabbit", "Oswald the Lucky Rabbit", "Peter Cottontail"],
 
-    answer: 3},
+    answer: 2},
 
-    {question: "Random question 4?",
+    {question: "What was Walt Disney Studio's first full feature animated film?",
 
-    options: ["Option A", "Option B", "Option C", "Option D"],
+    options: [ "The Barnyard Battle", "Snow White and the Seven Dwarfs", "The Sorcerer's Apprentice", "The Three Little Pigs"],
 
     answer: 1},
 
-    {question: "Random question 5?",
+    {question: "What is the name of the animation company that Walt Disney aquired in 2006?",
     
-    options: ["Option A", "Option B", "Option C", "Option D"],
+    options: ["Dreamworks", "Nickelodeon", "Pixar", "Universal Studios"],
 
     answer: 2}
 ];
