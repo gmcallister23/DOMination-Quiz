@@ -41,6 +41,23 @@ const restartButton = document.getElementById('restart-button');
 let currentQuestionIndex = 0;
 let score = 0;
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.cloor(Math.random() * (i+1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return array;
+}
+
+let activeQuestions = [];
+
+function startQuiz() {
+    activeQuestions = shuffleArray([...quizData]);
+    currentQuestionIndex = 0;
+    score = 0;
+    loadQuestion();
+}
+
 function loadQuestion() {
 
     const currentQuestion = quizData[currentQuestionIndex];
@@ -103,6 +120,8 @@ const startScreen = document.getElementById('start-screen');
 const startButton = document.getElementById('start-button');
 
 startButton.addEventListener('click', startQuiz);
+
+
 
 function startQuiz() {
     currentQuestionIndex = 0;
