@@ -43,8 +43,8 @@ let score = 0;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.cloor(Math.random() * (i+1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+        const j = Math.floor(Math.random() * (i+1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
 }
@@ -55,12 +55,16 @@ function startQuiz() {
     activeQuestions = shuffleArray([...quizData]);
     currentQuestionIndex = 0;
     score = 0;
+    startScreen.style.display = 'none';
+    document.getElementById('quiz-container').classList.remove('hidden');
+    scoreContainer.style.display = 'none';
+    questionContainer.style.display = 'block';
     loadQuestion();
 }
 
 function loadQuestion() {
 
-    const currentQuestion = quizData[currentQuestionIndex];
+    const currentQuestion = activeQuestions[currentQuestionIndex];
 
     questionElement.textContent = currentQuestion.question;
 
@@ -77,7 +81,7 @@ function loadQuestion() {
 }
 
 function handleAnswerSelection(selectedIndex) {
-    const currentQuestion = quizData[currentQuestionIndex];
+    const currentQuestion = activeQuestions[currentQuestionIndex];
     Array.from(optionsContainer.children).forEach((button, index) => {
         button.disabled = true;
         if (index === currentQuestion.answer) {
@@ -98,7 +102,7 @@ function selectOption(selectedIndex) {
 
 function nextQuestion() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < quizData.length) {
+    if (currentQuestionIndex < activeQuestions.length) {
         loadQuestion();
     } else {
         showScore();
@@ -108,40 +112,53 @@ function nextQuestion() {
 function showScore() {
     questionContainer.style.display = 'none';
     scoreContainer.style.display = 'block';
-    scoreElement.textContent = `Your score: ${score} out of ${quizData.length}`;
+    scoreElement.textContent = `Your score: ${score} out of ${activeQuestions.length}`;
 }
-
-
-nextButton.addEventListener('click', nextQuestion);
-
-restartButton.addEventListener('click', restartQuiz);
 
 const startScreen = document.getElementById('start-screen');
 const startButton = document.getElementById('start-button');
-
-startButton.addEventListener('click', startQuiz);
-
-
-
-function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    startScreen.style.display = 'none';
-    document.getElementById('quiz-container').style.display = 'block';
-    scoreContainer.style.display = 'none';
-    questionContainer.style.display = 'block';
-    loadQuestion();
-}
-
-loadQuestion();
 
 
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-    document.getElementById('quiz-container').style.display = 'block';
-    questionContainer.style.display = 'block';
+    startScreen.style.display = 'block';
+    document.getElementById('quiz-container').classList.add('hidden');
     scoreContainer.style.display = 'none';
-    loadQuestion();
+    questionContainer.style.display = 'none';
 }
+///function restartQuiz() {
+  //  currentQuestionIndex = 0;
+    //score = 0;
+   /// document.getElementById('quiz-container').classList.add('hidden');
+    //questionContainer.style.display = 'block';
+   // scoreContainer.style.display = 'none';
+    //loadQuestion();
+//}
+
+startButton.addEventListener('click', startQuiz);
+
+nextButton.addEventListener('click', nextQuestion);
+
+restartButton.addEventListener('click', restartQuiz);
+
+
+//loadQuestion();
+
+
+
+
+//function startQuiz() {
+  //  currentQuestionIndex = 0;
+    //score = 0;
+   // startScreen.style.display = 'none';
+   // document.getElementById('quiz-container').style.display = 'block';
+   // scoreContainer.style.display = 'none';
+    //questionContainer.style.display = 'block';
+    //loadQuestion();
+//}
+
+
+
+
 
